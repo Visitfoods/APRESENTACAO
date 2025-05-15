@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Completa Gelatomania</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos Globais para a Proposta */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e0e0e0; /* Fundo para a visualização de todos os slides */
+            margin: 0;
+            padding: 20px 0; /* Espaçamento para ver os slides individualmente */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilos para cada slide individual */
+        .presentation-slide {
+            width: 1280px;    /* Largura original do seu slide-container */
+            min-height: 720px; /* Altura mínima original */
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative; /* Mantém o contexto para elementos posicionados absolutamente dentro do slide */
+            overflow: hidden;   /* Mantém o design original */
+            margin-bottom: 30px; /* Espaço entre os slides na visualização do navegador */
+        }
+
+        /* Estilos específicos de cada slide (copiados do seu código original) */
+        /* Slide 1 specific styles */
+        .slide-1 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-1 .ice-cream-icon { font-size: 3.5rem; background: linear-gradient(45deg, #87CEEB, #FFB6C1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-1 .gradient-text { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-1 .bubble { position: absolute; border-radius: 50%; opacity: 0.1; }
+        .slide-1 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-1 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-1 .bubble-3 { width: 150px; height: 150px; background-color: #FFFFE0; bottom: 50px; left: 30%; }
+
+        /* Slide 2 specific styles */
+        .slide-2 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-2 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-2 .icon-box { width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-right: 20px; font-size: 1.5rem; }
+        .slide-2 .icon-social { background: linear-gradient(135deg, #87CEEB, #4a90e2); color: white; }
+        .slide-2 .icon-problem { background: linear-gradient(135deg, #FFB6C1, #ff76a6); color: white; }
+        .slide-2 .card { transition: all 0.3s ease; }
+        .slide-2 .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-2 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-2 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-2 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+
+        /* Slide 3 specific styles */
+        .slide-3 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-3 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-3 .feature-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-3 .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-3 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-3 .bg-social-gradient { background: linear-gradient(135deg, #4a90e2, #87CEEB); }
+        .slide-3 .bg-content-gradient { background: linear-gradient(135deg, #ff76a6, #FFB6C1); }
+        .slide-3 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-3 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-3 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-3 .stat-card { border-radius: 12px; transition: all 0.3s ease; }
+        .slide-3 .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+
+        /* Slide 4 specific styles */
+        .slide-4 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-4 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-4 .content-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-4 .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-4 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-4 .bg-content-gradient { background: linear-gradient(135deg, #ff76a6, #FFB6C1); }
+        .slide-4 .bg-format-gradient { background: linear-gradient(135deg, #f6d365, #fda085); }
+        .slide-4 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-4 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-4 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-4 .bubble-3 { width: 150px; height: 150px; background-color: #FFFFE0; bottom: 50px; left: 30%; }
+        .slide-4 .media-item { transition: all 0.3s ease; position: relative; }
+        .slide-4 .media-item:hover { transform: scale(1.03); }
+        .slide-4 .format-card { transition: all 0.3s ease; }
+        .slide-4 .format-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .slide-4 .content-icon { width: 70px; height: 70px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .slide-4 .image-showcase { position: relative; height: 180px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: linear-gradient(to right, rgba(135, 206, 235, 0.3), rgba(255, 182, 193, 0.3)); }
+        .slide-4 .image-grid { display: grid; grid-template-columns: repeat(6, 30px); grid-template-rows: repeat(4, 30px); gap: 6px; }
+        .slide-4 .image-placeholder { background-color: white; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .slide-4 .video-container { position: relative; height: 140px; width: 100%; background: linear-gradient(to right, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: space-around; }
+        .slide-4 .video-frame { background-color: white; border-radius: 8px; width: 40px; height: 70px; position: relative; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        .slide-4 .video-frame::after { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0; border-top: 8px solid transparent; border-left: 12px solid #ff76a6; border-bottom: 8px solid transparent; }
+        .slide-4 .video-frame:nth-child(2n) { height: 90px; }
+        .slide-4 .video-frame:nth-child(3n) { height: 60px; }
+        .slide-4 .format-container { display: flex; justify-content: space-around; margin-top: 20px; }
+        .slide-4 .format-box { position: relative; background-color: white; border-radius: 12px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; width: 20%; }
+        .slide-4 .format-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .slide-4 .format-box.portrait { width: 30px; height: 60px; } /* Corrected: Use .format-box.portrait and .format-box.landscape for correct width */
+        .slide-4 .format-box.landscape { width: 60px; height: 30px; }
+        .slide-4 .format-box.square { width: 40px; height: 50px; }
+        .slide-4 .format-demo { border: 2px solid #e0e0e0; margin-bottom: 10px; }
+        .slide-4 .format-demo.landscape { width: 60px; height: 30px; } /* Added dimensions for demo boxes */
+        .slide-4 .format-demo.square { width: 50px; height: 50px; }
+        .slide-4 .format-demo.portrait { width: 30px; height: 60px; }
+
+
+        /* Slide 5 specific styles */
+        .slide-5 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-5 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-5 .feature-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-5 .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-5 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-5 .bg-content-gradient { background: linear-gradient(135deg, #ff76a6, #FFB6C1); }
+        .slide-5 .bg-ads-gradient { background: linear-gradient(135deg, #ffd55e, #ffbc3e); }
+        .slide-5 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-5 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-5 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-5 .bubble-3 { width: 150px; height: 150px; background-color: #FFFFE0; bottom: 50px; left: 30%; }
+        .slide-5 .card-feature { transition: all 0.3s ease; }
+        .slide-5 .card-feature:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .slide-5 .mascot-container { position: relative; height: 180px; width: 100%; display: flex; justify-content: center; }
+        .slide-5 .mascot-circle { position: absolute; width: 140px; height: 140px; border-radius: 50%; background-color: #f0f9ff; display: flex; justify-content: center; align-items: center; z-index: 1; }
+        .slide-5 .mascot-shadow { position: absolute; bottom: 0; width: 100px; height: 20px; background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; }
+        .slide-5 .ad-platform { transition: all 0.3s ease; border-radius: 10px; }
+        .slide-5 .ad-platform:hover { transform: scale(1.05); }
+
+        /* Slide 6 specific styles */
+        .slide-6 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-6 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-6 .tech-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-6 .tech-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-6 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-6 .bg-tech-gradient { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+        .slide-6 .bg-web-gradient { background: linear-gradient(135deg, #1db954, #28c76f); }
+        .slide-6 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-6 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-6 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-6 .feature-item { transition: all 0.3s ease; }
+        .slide-6 .feature-item:hover { transform: translateX(5px); }
+        .slide-6 .ar-demo { position: relative; height: 170px; display: flex; justify-content: center; align-items: center; background: linear-gradient(to right, rgba(106, 17, 203, 0.05), rgba(37, 117, 252, 0.1)); border-radius: 12px; overflow: hidden; }
+        .slide-6 .ar-phone { width: 80px; height: 160px; background-color: #333; border-radius: 12px; display: flex; justify-content: center; align-items: center; position: relative; border: 2px solid #222; }
+        .slide-6 .ar-screen { width: 72px; height: 152px; background-color: #fff; border-radius: 8px; position: relative; overflow: hidden; }
+        .slide-6 .ar-ice-cream { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; color: #ff76a6; }
+        .slide-6 .ar-rays { position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 3px dashed rgba(106, 17, 203, 0.3); animation: spin-slide6 10s linear infinite; } /* Renamed animation */
+        @keyframes spin-slide6 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .slide-6 .service-item { transition: all 0.3s ease; }
+        .slide-6 .service-item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .slide-6 .management-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.2rem; }
+
+        /* Slide 7 specific styles */
+        .slide-7 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-7 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-7 .inova-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-7 .inova-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-7 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-7 .bg-inova-gradient { background: linear-gradient(135deg, #4a90e2, #6a11cb); }
+        .slide-7 .bg-clone-gradient { background: linear-gradient(135deg, #ff76a6, #ff9a9e); }
+        .slide-7 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-7 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-7 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-7 .feature-item { transition: all 0.3s ease; }
+        .slide-7 .feature-item:hover { transform: translateY(-3px); }
+        .slide-7 .chat-demo { position: relative; height: 230px; background-color: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; }
+        .slide-7 .chat-header { background: linear-gradient(90deg, #4a90e2, #6a11cb); color: white; padding: 10px 15px; font-weight: 600; display: flex; align-items: center; }
+        .slide-7 .chat-body { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .slide-7 .chat-message { padding: 8px 12px; border-radius: 15px; max-width: 80%; animation: fadeIn-slide7 0.5s ease-in-out; } /* Renamed animation */
+        .slide-7 .bot-message { background-color: #e9f3ff; border-left: 3px solid #4a90e2; align-self: flex-start; }
+        .slide-7 .user-message { background-color: #f0e6ff; border-right: 3px solid #6a11cb; align-self: flex-end; }
+        .slide-7 .chat-input { padding: 10px; display: flex; gap: 10px; border-top: 1px solid #e2e8f0; background-color: white; }
+        .slide-7 .chat-input-field { flex-grow: 1; padding: 8px 15px; border: 1px solid #cbd5e0; border-radius: 20px; font-size: 0.9rem; }
+        .slide-7 .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @keyframes fadeIn-slide7 { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } /* Renamed animation */
+        .slide-7 .service-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: white; margin-right: 15px; flex-shrink: 0; }
+        .slide-7 .clone-container { position: relative; height: 160px; display: flex; justify-content: center; align-items: center; background: linear-gradient(to right, rgba(255, 118, 166, 0.05), rgba(255, 154, 158, 0.1)); border-radius: 12px; overflow: hidden; }
+        .slide-7 .clone-figure { width: 70px; height: 140px; background-color: rgba(0,0,0,0.1); border-radius: 35px 35px 20px 20px; position: relative; margin: 0 15px; }
+        .slide-7 .clone-head { width: 40px; height: 40px; background-color: #e2e8f0; border-radius: 50%; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); }
+        .slide-7 .clone-body { width: 60px; height: 80px; background-color: #e2e8f0; border-radius: 20px 20px 10px 10px; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .slide-7 .clone-badge { position: absolute; width: 30px; height: 30px; border-radius: 50%; top: -5px; right: -5px; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: white; font-weight: bold; z-index: 2; }
+        .slide-7 .clone-1 .clone-badge { background: linear-gradient(135deg, #4a90e2, #6a11cb); }
+        .slide-7 .clone-2 .clone-badge { background: linear-gradient(135deg, #ff76a6, #ff9a9e); }
+        .slide-7 .clone-3 .clone-badge { background: linear-gradient(135deg, #ffd55e, #ffbc3e); }
+        .slide-7 .clone-rays { position: absolute; width: 160px; height: 160px; border-radius: 50%; border: 2px dashed rgba(255, 118, 166, 0.3); animation: spin-slide7 12s linear infinite; } /* Renamed animation */
+        @keyframes spin-slide7 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } } /* Renamed animation */
+
+        /* Slide 8 specific styles */
+        .slide-8 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-8 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-8 .identity-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-8 .identity-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-8 .icon-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; }
+        .slide-8 .bg-identity-gradient { background: linear-gradient(135deg, #4a90e2, #6a11cb); }
+        .slide-8 .bg-activation-gradient { background: linear-gradient(135deg, #ff9a9e, #ff76a6); }
+        .slide-8 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-8 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-8 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-8 .feature-item { transition: all 0.3s ease; }
+        .slide-8 .feature-item:hover { transform: translateY(-3px); }
+        .slide-8 .mockup-container { position: relative; height: 160px; display: flex; justify-content: center; align-items: center; }
+        .slide-8 .mockup-item { position: absolute; background-color: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 10px; transition: all 0.3s ease; }
+        .slide-8 .mockup-item:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.15); z-index: 10; }
+        .slide-8 .mockup-card { width: 100px; height: 160px; left: 20%; transform: rotate(-15deg); background-color: #f0f9ff; border: 1px solid #e2e8f0; }
+        .slide-8 .mockup-menu { width: 140px; height: 100px; right: 20%; transform: rotate(10deg); background-color: #fff5f7; border: 1px solid #e2e8f0; }
+        .slide-8 .mockup-logo { width: 120px; height: 120px; border-radius: 50%; z-index: 5; background: linear-gradient(135deg, #f0f9ff, #fff5f7); border: 2px solid white; display: flex; justify-content: center; align-items: center; }
+        .slide-8 .activation-item { transition: all 0.3s ease; border-radius: 10px; overflow: hidden; }
+        .slide-8 .activation-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-8 .activation-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.3rem; color: white; margin-right: 15px; }
+        .slide-8 .video-preview { height: 120px; background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(106, 17, 203, 0.1)); border-radius: 10px; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+        .slide-8 .video-play { width: 50px; height: 50px; background-color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; }
+        .slide-8 .video-play i { color: #ff76a6; font-size: 1.2rem; margin-left: 3px; }
+        .slide-8 .video-timeline { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); width: 80%; height: 4px; background-color: rgba(255,255,255,0.3); border-radius: 2px; }
+        .slide-8 .video-progress { position: absolute; top: 0; left: 0; height: 100%; width: 30%; background-color: #ff76a6; border-radius: 2px; }
+        .slide-8 .mascot-item { position: relative; }
+        .slide-8 .mascot-circle { width: 60px; height: 60px; background-color: #fff5f7; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px; flex-shrink: 0; } /* Removed z-index from here */
+        .slide-8 .mascot-circle i { z-index: 1; } /* Ensure icon is above pulse */
+        .slide-8 .pulse-animation { position: absolute; width: 60px; height: 60px; border-radius: 50%; background-color: rgba(255, 118, 166, 0.3); z-index: 0; animation: pulse-slide8 2s infinite; } /* Renamed animation */
+        @keyframes pulse-slide8 { 0% { transform: scale(1); opacity: 0.3; } 70% { transform: scale(1.5); opacity: 0; } 100% { transform: scale(1); opacity: 0; } } /* Renamed animation */
+
+        /* Slide 9 specific styles */
+        .slide-9 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-9 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-9 .price-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-9 .price-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-9 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-9 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-9 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-9 .bubble-3 { width: 150px; height: 150px; background-color: #FFFFE0; bottom: 50px; left: 30%; }
+        .slide-9 .budget-item { transition: all 0.3s ease; }
+        .slide-9 .budget-item:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .slide-9 .chart-container { position: relative; height: 280px; width: 100%; }
+        .slide-9 .service-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.2rem; margin-right: 15px; flex-shrink: 0; }
+        .slide-9 .badge { display: inline-block; font-size: 0.8rem; padding: 0.25rem 0.5rem; border-radius: 9999px; text-transform: uppercase; font-weight: 600; }
+        .slide-9 .price-tag { position: relative; display: inline-block; padding: 0.25rem 0.75rem; font-weight: 700; border-radius: 0.375rem; margin-top: 0.25rem; }
+        .slide-9 .price-tag::after { content: ''; position: absolute; top: 0; right: -8px; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+        .slide-9 .price-tag-blue { background-color: rgba(74, 144, 226, 0.1); color: #4a90e2; }
+        .slide-9 .price-tag-blue::after { border-left: 8px solid rgba(74, 144, 226, 0.1); }
+        .slide-9 .price-tag-pink { background-color: rgba(255, 118, 166, 0.1); color: #ff76a6; }
+        .slide-9 .price-tag-pink::after { border-left: 8px solid rgba(255, 118, 166, 0.1); }
+        .slide-9 .price-tag-yellow { background-color: rgba(255, 188, 62, 0.1); color: #ffbc3e; }
+        .slide-9 .price-tag-yellow::after { border-left: 8px solid rgba(255, 188, 62, 0.1); }
+        .slide-9 .summary-box { border-width: 2px; border-style: solid; border-radius: 12px; transition: all 0.3s ease; }
+        .slide-9 .summary-box:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+
+        /* Slide 10 specific styles */
+        .slide-10 .slide-header { background: linear-gradient(90deg, #87CEEB 0%, #FFB6C1 50%, #FFFFE0 100%); }
+        .slide-10 .title-gradient { background: linear-gradient(45deg, #4a90e2, #ff76a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-10 .contact-card { transition: all 0.3s ease; border-radius: 12px; overflow: hidden; }
+        .slide-10 .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .slide-10 .bubble { position: absolute; border-radius: 50%; opacity: 0.08; z-index: 0; }
+        .slide-10 .bubble-1 { width: 300px; height: 300px; background-color: #87CEEB; bottom: -100px; right: -50px; }
+        .slide-10 .bubble-2 { width: 200px; height: 200px; background-color: #FFB6C1; top: -50px; left: -50px; }
+        .slide-10 .bubble-3 { width: 150px; height: 150px; background-color: #FFFFE0; bottom: 50px; left: 30%; }
+        .slide-10 .step-item { position: relative; padding-left: 40px; transition: all 0.3s ease; }
+        .slide-10 .step-item:hover { transform: translateX(5px); }
+        .slide-10 .step-number { position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; }
+        .slide-10 .contact-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: white; margin-right: 15px; }
+        .slide-10 .ice-cream-icon { font-size: 3rem; background: linear-gradient(45deg, #87CEEB, #FFB6C1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .slide-10 .timeline-item { position: relative; padding-left: 30px; margin-bottom: 20px; }
+        .slide-10 .timeline-dot { position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid; }
+        .slide-10 .timeline-line { position: absolute; left: 7px; top: 20px; width: 2px; height: calc(100% + 10px); }
+        .slide-10 .timeline-item:last-child .timeline-line { display: none; }
+        .slide-10 .thank-you-container { position: relative; display: flex; justify-content: center; align-items: center; z-index: 1; }
+        .slide-10 .thank-you-text { font-size: 2.5rem; font-weight: bold; position: relative; z-index: 2; }
+        .slide-10 .thank-you-blob { position: absolute; width: 220px; height: 220px; background: linear-gradient(45deg, rgba(135, 206, 235, 0.2), rgba(255, 182, 193, 0.2)); border-radius: 50%; z-index: 1; animation: pulse-slide10 3s infinite alternate ease-in-out; } /* Renamed animation */
+        @keyframes pulse-slide10 { from { transform: scale(0.9); } to { transform: scale(1.1); } } /* Renamed animation */
+
+        /* Estilos de Impressão */
+        @media print {
+            @page {
+                size: A4 landscape; /* Define explicitamente o tamanho A4 horizontal */
+                margin: 0;
+            }
+            body {
+                padding: 0;
+                margin: 0;
+                background-color: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .presentation-slide {
+                margin-bottom: 0;
+                box-shadow: none;
+                border-radius: 0;
+                page-break-after: always;
+                width: 297mm;
+                height: 210mm;
+                transform: scale(0.95); /* Escala ligeiramente menor para garantir margens */
+                transform-origin: top center;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+            .presentation-slide:last-child {
+                page-break-after: avoid;
+            }
+            html, body {
+                overflow: visible !important;
+            }
+            /* Ajustar tamanho da fonte se necessário para garantir legibilidade */
+            .text-xs, .text-sm {
+                font-size: 95% !important;
+            }
+            /* Garante que os decorativos fiquem no lugar certo */
+            .slide-header, .bubble {
+                position: absolute !important;
+            }
+        }
+
+        .visitfoods-logo {
+            position: absolute;
+            top: 24px;
+            right: 36px;
+            width: 200px;
+            height: auto;
+            z-index: 20;
+            opacity: 0.85;
+        }
+
+        .slide-inova-ra .title-gradient {
+            background: linear-gradient(45deg, #4a90e2, #6a11cb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Ajustes ESPECÍFICOS para SLIDE 4 em A4 horizontal */
+        .slide-4 {
+            width: 297mm !important;
+            min-height: 210mm !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            padding: 0 !important;
+        }
+        .slide-4 .p-16 {
+            padding: 1.5rem !important;
+        }
+        .slide-4 h1 {
+            font-size: 2.2rem !important;
+        }
+        .slide-4 h2 {
+            font-size: 1.3rem !important;
+        }
+        .slide-4 h3, .slide-4 h4 {
+            font-size: 1rem !important;
+        }
+        .slide-4 .text-xl, .slide-4 .text-2xl, .slide-4 .text-lg {
+            font-size: 1rem !important;
+        }
+        .slide-4 .text-base, .slide-4 .text-sm, .slide-4 .text-xs {
+            font-size: 0.85rem !important;
+        }
+        .slide-4 .icon-circle, .slide-4 .content-icon {
+            width: 38px !important;
+            height: 38px !important;
+            font-size: 1.1rem !important;
+        }
+        .slide-4 .image-showcase {
+            height: 110px !important;
+        }
+        .slide-4 .image-grid {
+            grid-template-columns: repeat(6, 18px) !important;
+            grid-template-rows: repeat(4, 18px) !important;
+            gap: 3px !important;
+        }
+        .slide-4 .image-placeholder {
+            border-radius: 2px !important;
+        }
+        .slide-4 .video-container {
+            height: 70px !important;
+        }
+        .slide-4 .video-frame {
+            width: 20px !important;
+            height: 35px !important;
+        }
+        .slide-4 .video-frame:nth-child(2n) { height: 45px !important; }
+        .slide-4 .video-frame:nth-child(3n) { height: 28px !important; }
+        .slide-4 .format-box {
+            padding: 6px !important;
+            width: 16% !important;
+        }
+        .slide-4 .format-demo.landscape { width: 30px !important; height: 15px !important; }
+        .slide-4 .format-demo.square { width: 25px !important; height: 25px !important; }
+        .slide-4 .format-demo.portrait { width: 15px !important; height: 30px !important; }
+        .slide-4 .px-3, .slide-4 .py-1 { padding: 2px 6px !important; font-size: 0.7rem !important; }
+        .slide-4 .rounded-xl, .slide-4 .rounded-lg { border-radius: 8px !important; }
+        .slide-4 .gap-8 { gap: 1.2rem !important; }
+        .slide-4 .mb-6, .slide-4 .mb-8 { margin-bottom: 0.7rem !important; }
+        .slide-4 .mt-6 { margin-top: 0.7rem !important; }
+        .slide-4 .pt-6 { padding-top: 0.7rem !important; }
+        .slide-4 .flex { flex-wrap: wrap; }
+        @media print {
+            .slide-4 {
+                width: 297mm !important;
+                min-height: 210mm !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0 !important;
+            }
+        }
+
+        /* Ajustes ESPECÍFICOS para SLIDE 5 em A4 horizontal */
+        .slide-5 {
+            width: 297mm !important;
+            min-height: 210mm !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            padding: 0 !important;
+        }
+        .slide-5 .p-16 {
+            padding: 1.5rem !important;
+        }
+        .slide-5 h1 {
+            font-size: 2.2rem !important;
+        }
+        .slide-5 h2 {
+            font-size: 1.3rem !important;
+        }
+        .slide-5 h3, .slide-5 h4 {
+            font-size: 1rem !important;
+        }
+        .slide-5 .text-xl, .slide-5 .text-2xl, .slide-5 .text-lg {
+            font-size: 1rem !important;
+        }
+        .slide-5 .text-base, .slide-5 .text-sm, .slide-5 .text-xs {
+            font-size: 0.85rem !important;
+        }
+        .slide-5 .icon-circle, .slide-5 .content-icon, .slide-5 .service-icon {
+            width: 38px !important;
+            height: 38px !important;
+            font-size: 1.1rem !important;
+        }
+        .slide-5 .mascot-circle {
+            width: 70px !important;
+            height: 70px !important;
+        }
+        .slide-5 .mascot-shadow {
+            width: 50px !important;
+            height: 10px !important;
+        }
+        .slide-5 .w-10, .slide-5 .h-10 {
+            width: 22px !important;
+            height: 22px !important;
+            font-size: 0.8rem !important;
+        }
+        .slide-5 .w-8, .slide-5 .h-8 {
+            width: 16px !important;
+            height: 16px !important;
+            font-size: 0.7rem !important;
+        }
+        .slide-5 .text-2xl, .slide-5 .text-3xl {
+            font-size: 1.1rem !important;
+        }
+        .slide-5 .rounded-xl, .slide-5 .rounded-lg { border-radius: 8px !important; }
+        .slide-5 .gap-8 { gap: 1.2rem !important; }
+        .slide-5 .mb-6, .slide-5 .mb-8 { margin-bottom: 0.7rem !important; }
+        .slide-5 .mt-6 { margin-top: 0.7rem !important; }
+        .slide-5 .pt-6 { padding-top: 0.7rem !important; }
+        .slide-5 .flex { flex-wrap: wrap; }
+        @media print {
+            .slide-5 {
+                width: 297mm !important;
+                min-height: 210mm !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0 !important;
+            }
+        }
+        /* Ajustes ESPECÍFICOS para SLIDE 6 em A4 horizontal */
+        .slide-6 {
+            width: 297mm !important;
+            min-height: 210mm !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            padding: 0 !important;
+        }
+        .slide-6 .p-16 {
+            padding: 1.5rem !important;
+        }
+        .slide-6 h1 {
+            font-size: 2.2rem !important;
+        }
+        .slide-6 h2 {
+            font-size: 1.3rem !important;
+        }
+        .slide-6 h3, .slide-6 h4 {
+            font-size: 1rem !important;
+        }
+        .slide-6 .text-xl, .slide-6 .text-2xl, .slide-6 .text-lg {
+            font-size: 1rem !important;
+        }
+        .slide-6 .text-base, .slide-6 .text-sm, .slide-6 .text-xs {
+            font-size: 0.85rem !important;
+        }
+        .slide-6 .icon-circle, .slide-6 .management-icon {
+            width: 38px !important;
+            height: 38px !important;
+            font-size: 1.1rem !important;
+        }
+        .slide-6 .rounded-xl, .slide-6 .rounded-lg { border-radius: 8px !important; }
+        .slide-6 .gap-8 { gap: 1.2rem !important; }
+        .slide-6 .mb-6, .slide-6 .mb-8 { margin-bottom: 0.7rem !important; }
+        .slide-6 .mt-6 { margin-top: 0.7rem !important; }
+        .slide-6 .pt-6 { padding-top: 0.7rem !important; }
+        .slide-6 .flex { flex-wrap: wrap; }
+        @media print {
+            .slide-6 {
+                width: 297mm !important;
+                min-height: 210mm !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0 !important;
+            }
+        }
+        /* Ajustes ESPECÍFICOS para SLIDE 7 em A4 horizontal */
+        .slide-7 {
+            width: 297mm !important;
+            min-height: 210mm !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            padding: 0 !important;
+        }
+        .slide-7 .p-16 {
+            padding: 0.7rem !important;
+        }
+        .slide-7 h1 {
+            font-size: 1.5rem !important;
+        }
+        .slide-7 h2 {
+            font-size: 1.05rem !important;
+        }
+        .slide-7 h3, .slide-7 h4 {
+            font-size: 0.95rem !important;
+        }
+        .slide-7 .text-xl, .slide-7 .text-2xl, .slide-7 .text-lg {
+            font-size: 0.95rem !important;
+        }
+        .slide-7 .text-base, .slide-7 .text-sm, .slide-7 .text-xs {
+            font-size: 0.75rem !important;
+        }
+        .slide-7 .icon-circle, .slide-7 .service-icon {
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 0.9rem !important;
+        }
+        .slide-7 .rounded-xl, .slide-7 .rounded-lg { border-radius: 6px !important; }
+        .slide-7 .gap-8 { gap: 0.7rem !important; }
+        .slide-7 .mb-6, .slide-7 .mb-8 { margin-bottom: 0.4rem !important; }
+        .slide-7 .mt-6 { margin-top: 0.4rem !important; }
+        .slide-7 .pt-6 { padding-top: 0.4rem !important; }
+        .slide-7 .feature-grid { gap: 4px !important; }
+        .slide-7 .inova-card, .slide-7 .feature-item, .slide-7 .chat-demo {
+            padding: 0.5rem !important;
+        }
+        .slide-7 .chat-header, .slide-7 .chat-body, .slide-7 .chat-input {
+            padding: 0.3rem !important;
+        }
+        .slide-7 .chat-message { font-size: 0.7rem !important; }
+        .slide-7 .chat-input-field { font-size: 0.7rem !important; }
+        .slide-7 .clone-figure { width: 35px !important; height: 70px !important; }
+        .slide-7 .clone-head { width: 20px !important; height: 20px !important; }
+        .slide-7 .clone-body { width: 30px !important; height: 40px !important; }
+        .slide-7 .clone-badge { width: 15px !important; height: 15px !important; font-size: 0.6rem !important; }
+        .slide-7 .clone-rays { width: 80px !important; height: 80px !important; }
+        .slide-7 .flex { flex-wrap: wrap; }
+        @media print {
+            .slide-7 {
+                width: 297mm !important;
+                min-height: 210mm !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0 !important;
+            }
+        }
+        /* Ajustes ESPECÍFICOS para SLIDE 9 em A4 horizontal */
+        .slide-9 {
+            width: 297mm !important;
+            min-height: 210mm !important;
+            max-width: 100vw;
+            max-height: 100vh;
+            padding: 0 !important;
+        }
+        .slide-9 .p-16 {
+            padding: 0.7rem !important;
+        }
+        .slide-9 h1 {
+            font-size: 1.5rem !important;
+        }
+        .slide-9 h2 {
+            font-size: 1.05rem !important;
+        }
+        .slide-9 h3, .slide-9 h4 {
+            font-size: 0.95rem !important;
+        }
+        .slide-9 .text-xl, .slide-9 .text-2xl, .slide-9 .text-lg {
+            font-size: 0.95rem !important;
+        }
+        .slide-9 .text-base, .slide-9 .text-sm, .slide-9 .text-xs {
+            font-size: 0.75rem !important;
+        }
+        .slide-9 .service-icon {
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 0.9rem !important;
+        }
+        .slide-9 .rounded-xl, .slide-9 .rounded-lg { border-radius: 6px !important; }
+        .slide-9 .gap-8 { gap: 0.7rem !important; }
+        .slide-9 .mb-6, .slide-9 .mb-8 { margin-bottom: 0.4rem !important; }
+        .slide-9 .mt-6 { margin-top: 0.4rem !important; }
+        .slide-9 .pt-6 { padding-top: 0.4rem !important; }
+        .slide-9 .summary-box, .slide-9 .budget-item, .slide-9 .price-card {
+            padding: 0.5rem !important;
+        }
+        .slide-9 .price-tag, .slide-9 .badge {
+            font-size: 0.7rem !important;
+            padding: 0.1rem 0.4rem !important;
+        }
+        .slide-9 .flex { flex-wrap: wrap; }
+        @media print {
+            .slide-9 {
+                width: 297mm !important;
+                min-height: 210mm !important;
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1 -->
+    <div class="presentation-slide slide-1 flex items-center justify-center" style="min-height: 720px;">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        
+        <!-- Content -->
+        <div class="flex flex-col justify-center items-center w-full h-full px-16 py-20">
+            <!-- Removing this div with the ice cream icon -->
+            
+            <h1 class="text-6xl font-bold mb-4 gradient-text">GELATOMANIA</h1>
+            
+            <h2 class="text-3xl font-semibold mb-10 text-gray-700">Orçamento de Comunicação e Marketing</h2>
+            
+            <div class="bg-blue-50 px-8 py-6 rounded-lg shadow-sm mb-10">
+                <h3 class="text-xl font-medium text-gray-700 mb-3">Proposta para 3 meses</h3>
+                <p class="text-lg text-gray-600">Estratégia de Redes Sociais + Soluções Inovadoras</p>
+            </div>
+            
+            <div class="flex flex-row justify-center items-center space-x-6 text-lg text-gray-600">
+                <div class="flex items-center">
+                    <i class="far fa-calendar-alt text-blue-400 mr-2"></i>
+                    <span>2025</span>
+                </div>
+                <div class="h-4 border-r border-gray-300"></div>
+                <div class="flex items-center">
+                    <i class="fas fa-bullseye text-pink-400 mr-2"></i>
+                    <span>Renovação Digital</span>
+                </div>
+                <div class="h-4 border-r border-gray-300"></div>
+                <div class="flex items-center">
+                    <i class="fas fa-chart-line text-yellow-400 mr-2"></i>
+                    <span>Crescimento</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="presentation-slide slide-2">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-8 title-gradient">1. Contexto Atual</h1>
+            
+            <div class="grid grid-cols-2 gap-10 mt-4">
+                <!-- Left Column - Social Media Situation -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-blue-500 flex items-center">
+                        <i class="fas fa-hashtag mr-3"></i>
+                        Situação das Redes Sociais
+                    </h2>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-blue-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-social">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Estratégia desatualizada</h3>
+                                    <p class="text-gray-600">Sem renovação há 6 anos, muito abaixo dos padrões atuais</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-social">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Páginas fragmentadas</h3>
+                                    <p class="text-gray-600">Necessário concluir a migração de seguidores e unificar a comunicação</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-social">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Falta de interação com turistas</h3>
+                                    <p class="text-gray-600">Comunicação apenas em português, limitando alcance internacional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Identified Problems -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-pink-500 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-3"></i>
+                        Problemas Identificados
+                    </h2>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-pink-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-problem">
+                                    <i class="fas fa-euro-sign"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Preços e serviços desatualizados</h3>
+                                    <p class="text-gray-600">Não revistos desde o início da parceria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-problem">
+                                    <i class="fas fa-ad"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Ausência de campanhas pagas</h3>
+                                    <p class="text-gray-600">Sem anúncios pagos ou segmentação por localizações</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-5 rounded-lg shadow-sm card">
+                            <div class="flex items-start">
+                                <div class="icon-box icon-problem">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800 mb-1">Website secundário</h3>
+                                    <p class="text-gray-600">Sem integração com redes sociais ou funcionalidades modernas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 2/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="presentation-slide slide-3">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">2. Propostas de Marketing e Comunicação</h1>
+            <h2 class="text-2xl font-semibold mb-8 text-blue-500">2.1 Estratégia de Redes Sociais</h2>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column - Strategy -->
+                <div>
+                    <div class="bg-blue-50 p-6 rounded-xl shadow-sm feature-card mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="icon-circle bg-social-gradient mr-4">
+                                <i class="fas fa-bezier-curve"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Unificação de Marca</h3>
+                                <p class="text-gray-600">Todas as localizações numa única página principal</p>
+                            </div>
+                        </div>
+                        <div class="pl-16">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                <span class="text-gray-700">Identidade visual consistente</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                <span class="text-gray-700">Campanhas de migração de seguidores</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl shadow-sm feature-card">
+                        <div class="flex items-start mb-4">
+                            <div class="icon-circle bg-content-gradient mr-4">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Plano de Conteúdo Mensal</h3>
+                                <p class="text-gray-600">Calendário estratégico com temas semanais e mensais</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 mt-4">
+                            <div class="stat-card bg-white p-3 flex flex-col items-center">
+                                <i class="fab fa-instagram text-xl text-pink-500 mb-1"></i>
+                                <div class="text-2xl font-bold text-gray-800">8-10</div>
+                                <div class="text-sm text-gray-600">Publicações/mês</div>
+                            </div>
+                            
+                            <div class="stat-card bg-white p-3 flex flex-col items-center">
+                                <i class="fas fa-book-open text-xl text-blue-500 mb-1"></i>
+                                <div class="text-2xl font-bold text-gray-800">15-20</div>
+                                <div class="text-sm text-gray-600">Stories/mês</div>
+                            </div>
+                            
+                            <div class="stat-card bg-white p-3 flex flex-col items-center">
+                                <i class="fas fa-user-tie text-xl text-indigo-500 mb-1"></i>
+                                <div class="text-lg font-bold text-gray-800">Gestor</div>
+                                <div class="text-sm text-gray-600">Diário dedicado</div>
+                            </div>
+                            
+                            <div class="stat-card bg-white p-3 flex flex-col items-center">
+                                <i class="fas fa-palette text-xl text-yellow-500 mb-1"></i>
+                                <div class="text-2xl font-bold text-gray-800">4-5</div>
+                                <div class="text-sm text-gray-600">Designs/mês</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Multimedia Production -->
+                <div>
+                    <div class="bg-pink-50 p-6 rounded-xl shadow-sm feature-card h-full">
+                        <div class="flex items-start mb-6">
+                            <div class="icon-circle bg-content-gradient mr-4">
+                                <i class="fas fa-photo-video"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Produção de Conteúdos Multimédia</h3>
+                                <p class="text-gray-600">Renovação e atualização de conteúdos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm mr-4">
+                                    <i class="fas fa-camera text-2xl text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-medium text-gray-800">Captação de conteúdos</div>
+                                    <div class="text-gray-600">1 dia no período de 3 meses</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm mr-4">
+                                    <i class="fas fa-images text-2xl text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-medium text-gray-800">Fotografias</div>
+                                    <div class="text-gray-600">Pack de 60 a 80 fotografias</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-sm mr-4">
+                                    <i class="fas fa-film text-2xl text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-medium text-gray-800">Vídeos</div>
+                                    <div class="text-gray-600">Pack de 15 a 20 reels</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="text-lg font-medium text-gray-800 mb-2">Formatos disponíveis:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">16x9 (TV e Website)</span>
+                                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">4x5 (Publicações)</span>
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">9x16 (Stories e Reels)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 3/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="presentation-slide slide-4">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">2. Propostas de Marketing e Comunicação</h1>
+            <h2 class="text-2xl font-semibold mb-8 text-pink-500">2.2 Produção de Conteúdos Multimédia</h2>
+            <div class="grid grid-cols-2 gap-8 flex-grow">
+                <!-- Left Column - Content Strategy -->
+                <div>
+                    <div class="bg-pink-50 p-6 rounded-xl shadow-sm content-card mb-6">
+                        <div class="flex items-start mb-6">
+                            <div class="icon-circle bg-content-gradient mr-4">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Renovação e Atualização</h3>
+                                <p class="text-gray-600">Conteúdo fresco e alinhado com as tendências atuais</p>
+                            </div>
+                        </div>
+                        
+                        <div class="media-item mb-6">
+                            <h4 class="text-lg font-medium text-gray-700 mb-3 flex items-center">
+                                <i class="fas fa-calendar-alt text-pink-500 mr-2"></i>
+                                Captação de conteúdos
+                            </h4>
+                            <div class="flex items-center bg-white p-4 rounded-lg shadow-sm">
+                                <div class="content-icon bg-pink-100 mr-4">
+                                    <i class="fas fa-camera text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold text-gray-800 mb-1">1 dia no período de 3 meses</div>
+                                    <div class="text-gray-600">Captação de conteúdos (2 dias num período de 1 ano)</div>
+                                    <div class="mt-2 text-sm text-pink-600">Inclui equipamento profissional e equipa dedicada</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media-item">
+                            <h4 class="text-lg font-medium text-gray-700 mb-3 flex items-center">
+                                <i class="fas fa-images text-blue-500 mr-2"></i>
+                                Pack de Fotografias
+                            </h4>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <div class="text-xl font-bold text-gray-800">60 a 80 fotografias</div>
+                                    <div class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Alta resolução</div>
+                                </div>
+                                
+                                <div class="image-showcase">
+                                    <div class="image-grid">
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                        <div class="image-placeholder"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Content Production -->
+                <div>
+                    <div class="bg-purple-50 p-6 rounded-xl shadow-sm content-card h-full">
+                        <div class="flex items-start mb-6">
+                            <div class="icon-circle bg-purple-500 mr-4"> <!-- Changed from bg-content-gradient to bg-purple-500 for better contrast -->
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Pack de Vídeos</h3>
+                                <p class="text-gray-600">Conteúdo dinâmico para maior engagement</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <div class="text-xl font-bold text-gray-800">15 a 20 reels</div>
+                                <div class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Edição profissional</div>
+                            </div>
+                            
+                            <div class="video-container">
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                                <div class="video-frame"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="flex items-start mb-4">
+                                <div class="icon-circle bg-format-gradient mr-4">
+                                    <i class="fas fa-crop-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Formatos Disponíveis</h3>
+                                    <p class="text-gray-600">Adaptados para cada plataforma</p>
+                                </div>
+                            </div>
+                            
+                            <div class="format-container">
+                                <div class="format-box">
+                                    <div class="format-demo landscape"></div>
+                                    <div class="text-gray-800 font-medium">16x9</div>
+                                    <div class="text-xs text-gray-500">TV e Website</div>
+                                </div>
+                                
+                                <div class="format-box">
+                                    <div class="format-demo square"></div>
+                                    <div class="text-gray-800 font-medium">4x5</div>
+                                    <div class="text-xs text-gray-500">Publicações</div>
+                                </div>
+                                
+                                <div class="format-box">
+                                    <div class="format-demo portrait"></div>
+                                    <div class="text-gray-800 font-medium">9x16</div>
+                                    <div class="text-xs text-gray-500">Stories e Reels</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-3 rounded-lg mt-6 border-l-4 border-yellow-400">
+                                <div class="flex items-center">
+                                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                    <p class="text-sm text-gray-700">Todos os conteúdos são otimizados para cada rede social e entregues em múltiplos formatos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 4/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="presentation-slide slide-5">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">2. Propostas de Marketing e Comunicação</h1>
+            <div class="grid grid-cols-2 gap-8 flex-grow">
+                <!-- Left Column - Conteúdos Inovadores -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-pink-500">2.3 Criação de Conteúdos Inovadores</h2>
+                    
+                    <div class="bg-pink-50 p-6 rounded-xl shadow-sm feature-card">
+                        <div class="flex items-start mb-5">
+                            <div class="icon-circle bg-content-gradient mr-4">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Vídeos Curtos e Interativos</h3>
+                                <p class="text-gray-600">15 segundos, alinhados com tendências virais</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 pl-16">
+                            <div class="card-feature bg-white p-3 rounded-lg flex flex-col items-center">
+                                <i class="fas fa-hand-holding-heart text-pink-500 text-2xl mb-2"></i>
+                                <div class="text-center text-sm text-gray-700">Desafios virais adaptados</div>
+                            </div>
+                            <div class="card-feature bg-white p-3 rounded-lg flex flex-col items-center">
+                                <i class="fas fa-mask text-pink-500 text-2xl mb-2"></i>
+                                <div class="text-center text-sm text-gray-700">Behind-the-scenes exclusivos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mascot-container mt-8">
+                            <div class="mascot-shadow"></div>
+                            <div class="mascot-circle">
+                                <i class="fas fa-ice-cream text-5xl" style="background: linear-gradient(135deg, #87CEEB, #FFB6C1); -webkit-background-clip: text; background-clip: text; color: transparent;"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-2">
+                            <h4 class="font-semibold text-gray-800 text-lg mb-1">Mascote Gelatino Animada</h4>
+                            <p class="text-gray-600 text-sm">Com voz via IA para humanizar a marca</p>
+                        </div>
+                        
+                        <div class="mt-6 bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex justify-center items-center gap-4">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <span class="font-bold text-blue-600">PT</span>
+                                    </div>
+                                </div>
+                                <i class="fas fa-plus text-gray-400"></i>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                        <span class="font-bold text-red-600">EN</span>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 font-medium">Conteúdos Bilingues</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Anúncios Pagos -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-yellow-500">2.4 Anúncios Pagos</h2>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-xl shadow-sm feature-card">
+                        <div class="flex items-start mb-6">
+                            <div class="icon-circle bg-ads-gradient mr-4">
+                                <i class="fas fa-ad"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Campanhas Estratégicas</h3>
+                                <p class="text-gray-600">Orçamento otimizado para máximo retorno</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm mb-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-gray-700 font-medium">Orçamento Mensal:</div>
+                                <div class="text-2xl font-bold text-yellow-600">140€</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div class="ad-platform bg-blue-50 p-3 rounded flex flex-col items-center" style="width: 48%;">
+                                    <i class="fab fa-facebook text-blue-600 text-3xl mb-2"></i>
+                                    <div class="text-sm font-medium text-gray-700">Meta Ads</div>
+                                    <div class="text-xs text-gray-500">(Facebook/Instagram)</div>
+                                </div>
+                                
+                                <div class="ad-platform bg-blue-50 p-3 rounded flex flex-col items-center" style="width: 48%;">
+                                    <i class="fab fa-google text-red-500 text-3xl mb-2"></i>
+                                    <div class="text-sm font-medium text-gray-700">Google Ads</div>
+                                    <div class="text-xs text-gray-500">(Search/Display)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="font-semibold text-gray-800 mb-3">Segmentação Avançada</h4>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-800">Localização</div>
+                                    <div class="text-xs text-gray-600">Segmentação por áreas geográficas</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-users text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-800">Públicos Específicos</div>
+                                    <div class="text-xs text-gray-600">Residentes locais e turistas</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-calendar-alt text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-800">Eventos Sazonais</div>
+                                    <div class="text-xs text-gray-600">Promoções especiais para épocas festivas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 5/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="presentation-slide slide-6">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">2. Propostas de Marketing e Comunicação</h1>
+            <h2 class="text-2xl font-semibold mb-8 text-green-600">2.5 Gestão e manutenção do Website Gelatomania</h2>
+            <div class="flex justify-center items-start flex-grow">
+                <div class="w-full max-w-xl">
+                    <div class="bg-green-50 p-6 rounded-xl shadow-sm tech-card">
+                        <div class="flex items-start mb-6">
+                            <div class="icon-circle bg-web-gradient mr-4">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Hospedagem Profissional</h3>
+                                <p class="text-gray-600">Infraestrutura robusta e segura</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-3 mb-6">
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="management-icon bg-green-500 mr-3">
+                                    <i class="fas fa-hdd"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Alojamento Premium</h4>
+                                    <p class="text-xs text-gray-600">Contratação em fornecedor autorizado</p>
+                                </div>
+                            </div>
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="management-icon bg-blue-500 mr-3">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Configuração Otimizada</h4>
+                                    <p class="text-xs text-gray-600">Servidor web com desempenho maximizado</p>
+                                </div>
+                            </div>
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="management-icon bg-purple-500 mr-3">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Gestão de Atualizações</h4>
+                                    <p class="text-xs text-gray-600">Software e tecnologias sempre atualizados</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="icon-circle bg-web-gradient mr-4">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Manutenção Mensal</h3>
+                                <p class="text-gray-600">Gestão contínua e aprimoramento</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-file-alt text-green-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Atualização de Conteúdos</h4>
+                                <p class="text-xs text-gray-600">Páginas, textos e imagens</p>
+                            </div>
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-lock text-red-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Segurança Digital</h4>
+                                <p class="text-xs text-gray-600">Monitorização e proteção</p>
+                            </div>
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-chart-line text-blue-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Análise de Tráfego</h4>
+                                <p class="text-xs text-gray-600">Otimização para mais visitantes</p>
+                            </div>
+                            <div class="service-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-search text-yellow-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Otimização SEO</h4>
+                                <p class="text-xs text-gray-600">Melhor posicionamento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 6/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="presentation-slide slide-7">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">3. Soluções INOVA+</h1>
+            <div class="grid grid-cols-2 gap-8 flex-grow">
+                <!-- Left Column - Chatbot -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-blue-500">3.1 Assistente Virtual (Chatbot)</h2>
+                    <div class="bg-blue-50 p-6 rounded-xl shadow-sm inova-card">
+                        <div class="flex items-start mb-4">
+                            <div class="icon-circle bg-inova-gradient mr-4">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Assistente Virtual (Chatbot)</h3>
+                                <p class="text-gray-600">Atendimento automático 24/7 personalizado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-demo mb-4">
+                            <div class="chat-header">
+                                <i class="fas fa-ice-cream mr-2"></i>
+                                Gelatino - Assistente Virtual
+                            </div>
+                            
+                            <div class="chat-body">
+                                <div class="chat-message bot-message">
+                                    <p class="text-sm">👋 Olá! Sou o Gelatino, seu assistente virtual. Como posso ajudar?</p>
+                                </div>
+                                
+                                <div class="chat-message user-message">
+                                    <p class="text-sm">Olá! Quais são os sabores especiais do dia?</p>
+                                </div>
+                                
+                                <div class="chat-message bot-message">
+                                    <p class="text-sm">Hoje temos os sabores especiais: Cheesecake de Frutas Silvestres, Tiramisu e Manga com Maracujá! 🍦</p>
+                                </div>
+                                
+                                <div class="chat-message user-message">
+                                    <p class="text-sm">Qual o horário de funcionamento?</p>
+                                </div>
+                                
+                                <div class="chat-message bot-message">
+                                    <p class="text-sm">Estamos abertos todos os dias das 11h às 22h. Às sextas e sábados, ficamos abertos até às 23h! 🕙</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input">
+                                <input type="text" class="chat-input-field" placeholder="Digite sua pergunta..." readonly>
+                                <button class="px-3 py-2 bg-blue-500 text-white rounded-full">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-server text-blue-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Alojamento Seguro</h4>
+                                <p class="text-xs text-gray-600">Servidor privado</p>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-plug text-green-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Integração Website</h4>
+                                <p class="text-xs text-gray-600">Fácil incorporação</p>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-language text-purple-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Multilíngue</h4>
+                                <p class="text-xs text-gray-600">PT, EN e outros</p>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-question-circle text-red-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Dúvidas Frequentes</h4>
+                                <p class="text-xs text-gray-600">Respostas rápidas</p>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-chart-pie text-yellow-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Análise de Dados</h4>
+                                <p class="text-xs text-gray-600">Métricas detalhadas</p>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-3 rounded-lg shadow-sm flex flex-col items-center text-center">
+                                <i class="fas fa-clock text-indigo-500 text-2xl mb-2"></i>
+                                <h4 class="text-sm font-medium text-gray-800">Suporte 24/7</h4>
+                                <p class="text-xs text-gray-600">Sempre disponível</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Mascotes Digital -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-6 text-pink-500">3.2 Mascotes digital</h2>
+                    <div class="bg-pink-50 p-6 rounded-xl shadow-sm inova-card h-full">
+                        <div class="flex items-start mb-5">
+                            <div class="icon-circle bg-clone-gradient mr-4">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Mascotes digitais</h3>
+                                <p class="text-gray-600">Vídeos personalizados para conexão com clientes<br><span class='font-semibold text-pink-500'>Inclui pack de 3 a 5 vídeos por mês</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mt-2 mb-2">
+                          <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-white text-lg mr-3 shadow">
+                            <i class="fas fa-stopwatch"></i>
+                          </div>
+                          <span class="font-semibold text-yellow-700 bg-yellow-100 px-4 py-2 rounded-lg shadow-sm text-base">Tempo de desenvolvimento e implementação: 2 semanas.</span>
+                        </div>
+                        
+                        <div class="clone-container mb-6">
+                            <div class="clone-rays"></div>
+                            
+                            <div class="clone-figure clone-1">
+                                <div class="clone-badge">1</div>
+                                <div class="clone-head"></div>
+                                <div class="clone-body"></div>
+                            </div>
+                            
+                            <div class="clone-figure clone-2">
+                                <div class="clone-badge">2</div>
+                                <div class="clone-head"></div>
+                                <div class="clone-body"></div>
+                            </div>
+                            
+                            <div class="clone-figure clone-3">
+                                <div class="clone-badge">3</div>
+                                <div class="clone-head"></div>
+                                <div class="clone-body"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="feature-item bg-white p-4 rounded-lg shadow-sm flex items-center">
+                                <div class="service-icon" style="background: linear-gradient(135deg, #ff76a6, #ff9a9e);">
+                                    <i class="fas fa-thumbs-up"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Recomendação de Produtos</h4>
+                                    <p class="text-xs text-gray-600">Upselling e cross-selling personalizado baseado nas preferências do utilizador</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-4 rounded-lg shadow-sm flex items-center">
+                                <div class="service-icon" style="background: linear-gradient(135deg, #4a90e2, #6a11cb);">
+                                    <i class="fas fa-magic"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Experiência Personalizada</h4>
+                                    <p class="text-xs text-gray-600">Vídeos personalizados e mensagens dirigidas a cada cliente</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item bg-white p-4 rounded-lg shadow-sm flex items-center">
+                                <div class="service-icon" style="background: linear-gradient(135deg, #ffd55e, #ffbc3e);">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Manutenção e Atualizações</h4>
+                                    <p class="text-xs text-gray-600">Suporte contínuo, atualizações mensais e ajustes conforme necessário</p>
+                                </div>
+                            </div>
+                            <div class="feature-item bg-white p-4 rounded-lg shadow-sm flex items-center">
+                                <div class="service-icon" style="background: linear-gradient(135deg, #6a11cb, #2575fc);">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Entrega Rápida</h4>
+                                    <p class="text-xs text-gray-600">Desenvolvimento e entrega de vídeos personalizados em 72 horas. Capacidade de estar sempre dentro das tendências graças à rapidez de resposta e produção.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 7/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVA SLIDE: Soluções INOVA+ - Realidade Aumentada (RA) -->
+    <div class="presentation-slide slide-inova-ra">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-6 title-gradient">3. Soluções INOVA+</h1>
+            <h2 class="text-2xl font-semibold mb-8 text-purple-600">3.3 Realidade Aumentada (RA)</h2>
+            <div class="flex justify-center items-start flex-grow">
+                <div class="w-full max-w-xl">
+                    <div class="bg-purple-50 p-6 rounded-xl shadow-sm tech-card">
+                        <div class="flex items-start mb-6">
+                            <div class="rounded-full w-16 h-16 bg-purple-500 flex items-center justify-center text-white text-2xl mr-4 flex-shrink-0">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-1">Realidade Aumentada (RA)</h3>
+                                <p class="text-gray-600">Experiências interativas e imersivas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                    <i class="fas fa-cube text-purple-600"></i>
+                                </div>
+                                <div class="text-gray-700">Menus interativos com scan 3D dos gelados</div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                    <i class="fas fa-mobile-alt text-purple-600"></i>
+                                </div>
+                                <div class="text-gray-700">Visualização do produto em tamanho real via telemóvel. Experiência compatível com todos os sistemas operativos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-purple-100 p-4 rounded-lg border-l-4 border-purple-500">
+                            <div class="flex items-center">
+                                <i class="fas fa-lightbulb text-purple-500 mr-3 text-xl"></i>
+                                <p class="text-gray-700">Experiências imersivas que surpreendem os clientes e aumentam o envolvimento e interesse na marca</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 8/11
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="presentation-slide slide-9">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <h1 class="text-4xl font-bold mb-8 title-gradient">4. Orçamento Detalhado</h1>
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column - Plano Base -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-blue-600">4.1 Plano Base: Serviços de Marketing e Comunicação</h2>
+                    <div class="space-y-4 mb-10">
+                        <div class="budget-item bg-blue-50 p-5 rounded-xl shadow-sm">
+                            <div class="flex items-start">
+                                <div class="service-icon bg-blue-500">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-gray-800">Plano Base</h3>
+                                        <div class="badge bg-blue-100 text-blue-800">Essencial</div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1 mb-2">Gestão de redes sociais, criação de conteúdo diferenciador, gestão e manutenção do website</p>
+                                    <div class="flex justify-between items-center">
+                                        <div class="text-gray-700">
+                                            <span class="text-gray-500">600€/mês</span> × 3 meses
+                                        </div>
+                                        <div class="price-tag price-tag-blue">1.800€</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="budget-item bg-pink-50 p-5 rounded-xl shadow-sm">
+                            <div class="flex items-start">
+                                <div class="service-icon bg-pink-500">
+                                    <i class="fas fa-ad"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-gray-800">Anúncios Pagos</h3>
+                                        <div class="badge bg-pink-100 text-pink-800">Opcional</div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1 mb-2">Campanhas segmentadas no Meta (Facebook/Instagram) e Google Ads</p>
+                                    <div class="flex justify-between items-center">
+                                        <div class="text-gray-700">
+                                            <span class="text-gray-500">140€/mês</span> × 3 meses
+                                        </div>
+                                        <div class="price-tag price-tag-pink">420€</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="budget-item bg-blue-50 p-5 rounded-xl shadow-sm">
+                          <div class="flex items-start">
+                            <div class="service-icon bg-blue-500">
+                              <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="flex-grow">
+                              <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-gray-800">Mascotes digitais</h3>
+                                <div class="badge bg-blue-100 text-blue-800">ESSENCIAL</div>
+                              </div>
+                              <p class="text-sm text-gray-600 mt-1 mb-2">Vídeos personalizados para conexão com clientes</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column - Plano INOVA+ -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-purple-600">4.2 Plano INOVA+: Serviços inovadores</h2>
+                    <div class="space-y-4 mb-10">
+                        <div class="budget-item bg-purple-50 p-5 rounded-xl shadow-sm">
+                            <div class="flex items-start">
+                                <div class="service-icon bg-purple-500">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-gray-800">Assistente Virtual (Chatbot)</h3>
+                                        <div class="badge bg-purple-100 text-purple-800">INOVA+</div>
+                                    </div>
+                                    <p class="text-gray-600 mt-1 mb-2">Atendimento automático, personalizado e integrado ao website<br><span class='font-semibold text-blue-500'>Tempo de desenvolvimento e implementação: 3 a 4 semanas.<br>Inclui 1 ano de análise, apoio e suporte.</span></p>
+                                    <div class="flex justify-between items-center">
+                                      <div class="badge bg-purple-100 text-purple-800">INOVA+</div>
+                                      <span class="price-tag price-tag-blue">2.500€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="budget-item bg-purple-50 p-5 rounded-xl shadow-sm">
+                            <div class="flex items-start">
+                                <div class="service-icon bg-purple-500">
+                                    <i class="fas fa-vr-cardboard"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-gray-800">Realidade Aumentada (RA)</h3>
+                                        <div class="badge bg-purple-100 text-purple-800">INOVA+</div>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mt-1 mb-2">Experiências interativas e imersivas para o cliente</p>
+                                    <div class="flex flex-col gap-2 mb-2">
+                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan 40 produtos - 2.700€</span>
+                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan de 80 produtos - 5.000€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Gráfico, resumo e benefícios -->
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="summary-box border-blue-500 p-5 bg-blue-50 flex flex-col items-center justify-center">
+                            <h4 class="text-sm text-blue-500 font-semibold uppercase mb-1">Serviços Básicos</h4>
+                            <div class="text-3xl font-bold text-gray-800">2.220€</div>
+                            <p class="text-xs text-gray-500 mt-2">Plano Base + Anúncios Pagos</p>
+                        </div>
+                        <div class="summary-box border-purple-500 p-5 bg-purple-50 flex flex-col items-center justify-center">
+                            <h4 class="text-sm text-purple-500 font-semibold uppercase mb-1">Plano INOVA+</h4>
+                            <div class="text-3xl font-bold text-gray-800">Personalizado à sua medida</div>
+                            <p class="text-xs text-gray-500 mt-2">Todos os serviços INOVA+ incluídos</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-yellow-50 p-5 rounded-xl border-l-4 border-yellow-400">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                            Benefícios do Investimento
+                        </h4>
+                        <div class="space-y-2">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Aumento de reconhecimento da marca com identidade visual unificada</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Maior envolvimento com o público local e turistas</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Diferenciação da concorrência com tecnologias inovadoras (RA/IA)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">Conteúdo atualizado e alinhado com tendências atuais</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 9/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="presentation-slide slide-10">
+        <img src="img/Logotipo Visitfoods preto.png" alt="Visitfoods Logo" class="visitfoods-logo" />
+        <!-- Decorative elements -->
+        <div class="slide-header"></div>
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        
+        <!-- Content -->
+        <div class="p-16 relative z-10 h-full flex flex-col">
+            <div class="grid grid-cols-2 gap-8 flex-grow">
+                <!-- Left Column - Next Steps -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 title-gradient">Próximos Passos</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="timeline-dot border-blue-400" style="background: #E6F3FF;"></div>
+                            <div class="timeline-line bg-blue-200"></div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Reunião de Alinhamento</h3>
+                            <p class="text-gray-600">Definição de detalhes e confirmação de estratégias específicas para o negócio</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot border-pink-400" style="background: #FFF0F5;"></div>
+                            <div class="timeline-line bg-pink-200"></div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Planeamento de Conteúdos</h3>
+                            <p class="text-gray-600">Criação de calendário editorial e programação de publicações para o trimestre</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot border-yellow-400" style="background: #FFFBE6;"></div>
+                            <div class="timeline-line bg-yellow-200"></div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Produção de Materiais</h3>
+                            <p class="text-gray-600">Sessão fotográfica e captação de vídeos para alimentar as redes durante 3 meses</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot border-purple-400" style="background: #F2E6FF;"></div>
+                            <div class="timeline-line bg-purple-200"></div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Implementação Tecnológica</h3>
+                            <p class="text-gray-600">Desenvolvimento do chatbot, tecnologias de realidade aumentada e mascote digital</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot border-green-400" style="background: #E6FFEA;"></div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Lançamento e Monitorização</h3>
+                            <p class="text-gray-600">Início da estratégia com acompanhamento semanal de resultados</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Thank You and Contact -->
+                <div>
+                    <div class="thank-you-container h-56 mb-8">
+                        <div class="thank-you-blob"></div>
+                        <div class="thank-you-text title-gradient">Obrigado!</div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl shadow-sm contact-card mb-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+                            Para Avançar com o Projeto
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="contact-icon bg-blue-500">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Email</div>
+                                    <div class="text-gray-800 font-medium">sofia@visitfoods.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="contact-icon bg-green-500">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Telefone</div>
+                                    <div class="text-gray-800 font-medium">+351 913 578 656</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-pink-50 p-5 rounded-xl border border-pink-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800">Validade da Proposta</h4>
+                                <p class="text-gray-600 text-sm">Esta proposta é válida por 30 dias</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="far fa-calendar-alt text-pink-500 mr-2"></i>
+                                <span class="text-gray-700 font-medium">Até: 16/06/2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-auto flex justify-between items-center pt-6">
+                <div class="flex items-center pl-2">
+                    <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
+                </div>
+                <div class="text-gray-400">
+                    Página 10/10
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Budget pie chart for SLIDE 9
+            const budgetChartCanvas = document.getElementById('budgetChart');
+            if (budgetChartCanvas) { // Check if the canvas element exists
+                const ctx = budgetChartCanvas.getContext('2d');
+                const budgetChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Plano Base (3 meses)', 'Tráfego Pago (3 meses)', 'Soluções INOVA+ (RA/IA)'],
+                        datasets: [{
+                            data: [1800, 420, 3500],
+                            backgroundColor: [
+                                'rgba(74, 144, 226, 0.7)',
+                                'rgba(255, 118, 166, 0.7)',
+                                'rgba(255, 188, 62, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(74, 144, 226, 1)',
+                                'rgba(255, 118, 166, 1)',
+                                'rgba(255, 188, 62, 1)'
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 15
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        family: 'Montserrat',
+                                        size: 12
+                                    },
+                                    padding: 20
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let value = context.raw;
+                                        return context.label + ': ' + value + '€';
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
