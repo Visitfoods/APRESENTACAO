@@ -578,52 +578,387 @@
             max-width: 100vw;
             max-height: 100vh;
             padding: 0 !important;
+            overflow: visible !important;
+            box-sizing: border-box !important;
         }
         .slide-9 .p-16 {
-            padding: 0.7rem !important;
+            padding: 2.5rem !important;
         }
         .slide-9 h1 {
-            font-size: 1.5rem !important;
+            text-align: left !important;
+            margin-bottom: 2rem !important;
+            font-size: 2.2rem !important;
+            color: #2a3a6e !important;
         }
         .slide-9 h2 {
-            font-size: 1.05rem !important;
+            text-align: left !important;
+            margin-bottom: 1.2rem !important;
+            font-size: 1.3rem !important;
+            color: #2a3a6e !important;
+            background: none !important;
+            padding-bottom: 0 !important;
         }
-        .slide-9 h3, .slide-9 h4 {
-            font-size: 0.95rem !important;
+        .slide-9 .grid.grid-cols-2.gap-8 {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem !important;
         }
-        .slide-9 .text-xl, .slide-9 .text-2xl, .slide-9 .text-lg {
-            font-size: 0.95rem !important;
+        .slide-9 .budget-item, .slide-9 .summary-box {
+            background: #fff !important;
+            border-radius: 18px !important;
+            box-shadow: 0 6px 24px rgba(42, 58, 110, 0.07) !important;
+            border: none !important;
+            padding: 1.5rem 1.2rem !important;
+            margin-bottom: 1.2rem !important;
+            transition: box-shadow 0.2s;
         }
-        .slide-9 .text-base, .slide-9 .text-sm, .slide-9 .text-xs {
-            font-size: 0.75rem !important;
+        .slide-9 .budget-item:hover, .slide-9 .summary-box:hover {
+            box-shadow: 0 12px 32px rgba(42, 58, 110, 0.13) !important;
         }
         .slide-9 .service-icon {
-            width: 28px !important;
-            height: 28px !important;
-            font-size: 0.9rem !important;
+            width: 44px !important;
+            height: 44px !important;
+            font-size: 1.5rem !important;
+            border-radius: 50% !important;
+            background: #eaf0ff !important;
+            margin-right: 1rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 2px 8px rgba(42, 58, 110, 0.08) !important;
+            color: #2a3a6e !important;
         }
-        .slide-9 .rounded-xl, .slide-9 .rounded-lg { border-radius: 6px !important; }
-        .slide-9 .gap-8 { gap: 0.7rem !important; }
-        .slide-9 .mb-6, .slide-9 .mb-8 { margin-bottom: 0.4rem !important; }
-        .slide-9 .mt-6 { margin-top: 0.4rem !important; }
-        .slide-9 .pt-6 { padding-top: 0.4rem !important; }
-        .slide-9 .summary-box, .slide-9 .budget-item, .slide-9 .price-card {
-            padding: 0.5rem !important;
+        .slide-9 .budget-item .service-icon.bg-blue-500 { background: #eaf0ff !important; color: #2a3a6e !important; }
+        .slide-9 .budget-item .service-icon.bg-pink-500 { background: #ffeaf3 !important; color: #e23a7e !important; }
+        .slide-9 .budget-item .service-icon.bg-purple-500 { background: #f3eaff !important; color: #7c3aed !important; }
+        .slide-9 .badge {
+            border-radius: 999px !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            padding: 0.2rem 0.8rem !important;
+            background: #eaf0ff !important;
+            color: #2a3a6e !important;
+            box-shadow: none !important;
         }
-        .slide-9 .price-tag, .slide-9 .badge {
-            font-size: 0.7rem !important;
-            padding: 0.1rem 0.4rem !important;
+        .slide-9 .badge.bg-pink-100 { background: #ffeaf3 !important; color: #e23a7e !important; }
+        .slide-9 .badge.bg-blue-100 { background: #eaf0ff !important; color: #2a3a6e !important; }
+        .slide-9 .badge.bg-purple-100 { background: #f3eaff !important; color: #7c3aed !important; }
+        .slide-9 .price-tag {
+            font-size: 1.1rem !important;
+            font-weight: bold !important;
+            color: #4a90e2 !important;
+            background: #e0e7ff !important;
+            border-radius: 8px !important;
+            padding: 0.2rem 0.8rem !important;
+            box-shadow: none !important;
         }
-        .slide-9 .flex { flex-wrap: wrap; }
+        .slide-9 .text-lg, .slide-9 .text-base, .slide-9 .text-sm, .slide-9 .text-xs {
+            color: #444 !important;
+        }
+        .slide-9 .summary-box {
+            border: 2px solid #e0e7ff !important;
+            background: #f8fafc !important;
+            text-align: left !important;
+            align-items: flex-start !important;
+        }
+        .slide-9 .summary-box .text-3xl {
+            color: #4a90e2 !important;
+            background: none !important;
+            font-size: 2rem !important;
+        }
+        .slide-9 .summary-box h4 {
+            color: #7c3aed !important;
+            font-size: 1rem !important;
+        }
+        .slide-9 .grid.grid-cols-2.gap-8.mt-8 {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem !important;
+            margin-top: 1.5rem !important;
+        }
+        .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+            display: flex !important;
+            flex-direction: row;
+            gap: 2.5rem !important;
+            margin-bottom: 1.2rem !important;
+            justify-content: center;
+        }
+        .slide-9 .flex.justify-between.items-center.pt-6 {
+            margin-top: 2rem !important;
+        }
         @media print {
-            .slide-9 {
-                width: 297mm !important;
-                min-height: 210mm !important;
-                max-width: 100vw;
-                max-height: 100vh;
-                padding: 0 !important;
+            .slide-9 .p-16 {
+                padding: 1.2rem !important;
+            }
+            .slide-9 .grid.grid-cols-2.gap-8,
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8,
+            .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+                gap: 1rem !important;
             }
         }
+        /* REORGANIZAÇÃO VISUAL SLIDE 9 - distribuição equilibrada */
+        .slide-9 .grid.grid-cols-2.gap-8 {
+            display: flex !important;
+            flex-wrap: wrap;
+            gap: 1.2rem !important;
+        }
+        .slide-9 .grid.grid-cols-2.gap-8 > div {
+            flex: 1 1 0;
+            min-width: 320px;
+            max-width: 48%;
+        }
+        .slide-9 .space-y-4.mb-10 {
+            margin-bottom: 0.5rem !important;
+        }
+        .slide-9 .budget-item, .slide-9 .summary-box {
+            margin-bottom: 0.5rem !important;
+        }
+        .slide-9 .grid.grid-cols-2.gap-8.mt-8 {
+            display: flex !important;
+            flex-wrap: nowrap;
+            gap: 1.2rem !important;
+            margin-top: 0.5rem !important;
+        }
+        .slide-9 .grid.grid-cols-2.gap-8.mt-8 > div {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: 33%;
+        }
+        .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+            display: flex !important;
+            flex-direction: row;
+            gap: 0.7rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        .slide-9 .summary-box {
+            min-width: 0;
+            flex: 1 1 0;
+        }
+        .slide-9 .bg-yellow-50.p-5.rounded-xl.border-l-4.border-yellow-400 {
+            min-width: 0;
+            flex: 2 1 0;
+        }
+        @media print {
+            .slide-9 .grid.grid-cols-2.gap-8,
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8,
+            .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+                display: flex !important;
+                flex-wrap: wrap;
+                gap: 0.7rem !important;
+            }
+            .slide-9 .grid.grid-cols-2.gap-8 > div,
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8 > div {
+                min-width: 320px;
+                max-width: 48%;
+            }
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8 > div {
+                max-width: 33%;
+            }
+        }
+        /* Esconde o bloco de benefícios do investimento */
+        .slide-9 .bg-yellow-50.p-5.rounded-xl.border-l-4.border-yellow-400 {
+            display: none !important;
+        }
+        /* Reorganiza os resumos para ficarem centralizados e maiores */
+        .slide-9 .grid.grid-cols-2.gap-8.mt-8 {
+            display: flex !important;
+            flex-wrap: nowrap;
+            gap: 2rem !important;
+            margin-top: 1.5rem !important;
+            justify-content: center;
+        }
+        .slide-9 .grid.grid-cols-2.gap-8.mt-8 > div {
+            flex: 1 1 0;
+            min-width: 320px;
+            max-width: 420px;
+        }
+        .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+            display: flex !important;
+            flex-direction: row;
+            gap: 1.5rem !important;
+            margin-bottom: 0.5rem !important;
+            justify-content: center;
+        }
+        .slide-9 .summary-box {
+            min-width: 0;
+            flex: 1 1 0;
+        }
+        @media print {
+            .slide-9 .bg-yellow-50.p-5.rounded-xl.border-l-4.border-yellow-400 {
+                display: none !important;
+            }
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8,
+            .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+                display: flex !important;
+                flex-wrap: nowrap;
+                gap: 1.5rem !important;
+                justify-content: center;
+            }
+            .slide-9 .grid.grid-cols-2.gap-8.mt-8 > div {
+                min-width: 320px;
+                max-width: 420px;
+            }
+        }
+
+        /* EMBELEZAMENTO E HARMONIZAÇÃO DO SLIDE 9 */
+        /* Ajustes gerais de espaçamento e margens */
+        .slide-9 h1 {
+            margin-bottom: 1.2rem !important;
+            text-align: center !important;
+        }
+        .slide-9 h2 {
+            margin-bottom: 0.6rem !important;
+            text-align: center !important;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+        .slide-9 h2:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, currentColor, transparent);
+        }
+        
+        /* Melhoria nos cards de serviço */
+        .slide-9 .budget-item {
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+            padding: 0.7rem !important;
+        }
+        .slide-9 .budget-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+        }
+        
+        /* Melhorias nos ícones */
+        .slide-9 .service-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1) !important;
+            margin-right: 0.6rem !important;
+        }
+        
+        /* Destaque para valores e badges */
+        .slide-9 .price-tag {
+            font-weight: bold !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        .slide-9 .badge {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        }
+        
+        /* Resumos mais destacados */
+        .slide-9 .summary-box {
+            padding: 1rem !important;
+            text-align: center !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07) !important;
+            border-width: 2px !important;
+            border-radius: 0.8rem !important;
+            transition: all 0.2s ease-in-out;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+        .slide-9 .summary-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1) !important;
+        }
+        .slide-9 .summary-box h4 {
+            margin-bottom: 0.5rem !important;
+            font-size: 0.9rem !important;
+        }
+        .slide-9 .summary-box .text-3xl {
+            margin: 0.4rem 0 !important;
+            font-size: 1.8rem !important;
+            background: linear-gradient(135deg, #4a90e2, #9f5ff1);
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+            font-weight: bold !important;
+        }
+        
+        /* Espaçamento entre colunas */
+        .slide-9 .grid-cols-2 > div:first-child h2 {
+            color: #4a90e2 !important;
+        }
+        .slide-9 .grid-cols-2 > div:last-child h2 {
+            color: #9f5ff1 !important;
+        }
+        
+        /* Ajuste de alinhamento dos textos */
+        .slide-9 .text-gray-600, .slide-9 .text-gray-700 {
+            line-height: 1.3 !important;
+        }
+
+        /* CORRIGE VISUALIZAÇÃO DOS VALORES NOS RESUMOS DO SLIDE 9 */
+        .slide-9 .summary-box .text-3xl {
+            display: block !important;
+            margin: 0.4rem 0 0.7rem 0 !important;
+            font-size: 2.1rem !important;
+            color: #2a3a6e !important;
+            background: none !important;
+            font-weight: bold !important;
+            text-align: center !important;
+        }
+        .slide-9 .summary-box {
+            align-items: center !important;
+            text-align: center !important;
+        }
+        .slide-9 .summary-box h4 {
+            width: 100%;
+            text-align: center !important;
+        }
+        .slide-9 .summary-box p {
+            width: 100%;
+            text-align: center !important;
+        }
+        /* AJUSTE DAS DIMENSÕES DAS CAIXAS DE RESUMO NO SLIDE 9 */
+        .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+            display: flex !important;
+            flex-direction: row;
+            gap: 3.5rem !important;
+            margin-bottom: 1.2rem !important;
+            justify-content: center;
+        }
+        .slide-9 .summary-box {
+            min-width: 420px;
+            max-width: 600px;
+            width: 100% !important;
+            min-height: 180px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            word-break: break-word !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        .slide-9 .summary-box .text-3xl {
+            font-size: 2.1rem !important;
+            word-break: break-word !important;
+        }
+        @media (max-width: 1200px) {
+            .slide-9 .summary-box {
+                min-width: 300px;
+                max-width: 90vw;
+            }
+            .slide-9 .grid.grid-cols-2.gap-4.mb-6 {
+                gap: 1.2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1 -->
     </style>
 </head>
 <body>
@@ -1714,8 +2049,8 @@
                                     </div>
                                     <p class="text-sm text-gray-600 mt-1 mb-2">Experiências interativas e imersivas para o cliente</p>
                                     <div class="flex flex-col gap-2 mb-2">
-                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan 40 produtos - 2.700€</span>
-                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan de 80 produtos - 5.000€</span>
+                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan 40 produtos - 3.700€</span>
+                                      <span class="font-semibold text-purple-700 bg-purple-100 px-3 py-1 rounded-lg w-max">Scan de 80 produtos - 6.600€</span>
                                     </div>
                                 </div>
                             </div>
@@ -1723,49 +2058,31 @@
                     </div>
                 </div>
             </div>
-            <!-- Gráfico, resumo e benefícios -->
-            <div class="grid grid-cols-2 gap-8 mt-8">
-                <div>
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="summary-box border-blue-500 p-5 bg-blue-50 flex flex-col items-center justify-center">
-                            <h4 class="text-sm text-blue-500 font-semibold uppercase mb-1">Serviços Básicos</h4>
-                            <div class="text-3xl font-bold text-gray-800">2.220€</div>
-                            <p class="text-xs text-gray-500 mt-2">Plano Base + Anúncios Pagos</p>
-                        </div>
-                        <div class="summary-box border-purple-500 p-5 bg-purple-50 flex flex-col items-center justify-center">
-                            <h4 class="text-sm text-purple-500 font-semibold uppercase mb-1">Plano INOVA+</h4>
-                            <div class="text-3xl font-bold text-gray-800">Personalizado à sua medida</div>
-                            <p class="text-xs text-gray-500 mt-2">Todos os serviços INOVA+ incluídos</p>
-                        </div>
-                    </div>
+            <!-- Boxes de resumo direto no corpo da página com posicionamento mais seguro -->
+            <div style="display: flex; width: 90%; justify-content: space-between; margin: 25px auto 15px auto; gap: 15px;">
+                <!-- Serviços Básicos -->
+                <div style="width: 45%; background-color: #eff6ff; border: 1px solid #3b82f6; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box;">
+                    <h4 style="color: #3b82f6; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; margin-bottom: 3px;">SERVIÇOS BÁSICOS</h4>
+                    <div style="font-size: 2.2rem; font-weight: 700; color: #1f2937;">2.220€</div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-top: 3px;">Plano Base + Anúncios Pagos</p>
                 </div>
-                <div>
-                    <div class="bg-yellow-50 p-5 rounded-xl border-l-4 border-yellow-400">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-2 flex items-center">
-                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
-                            Benefícios do Investimento
-                        </h4>
-                        <div class="space-y-2">
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span class="text-gray-700">Aumento de reconhecimento da marca com identidade visual unificada</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span class="text-gray-700">Maior envolvimento com o público local e turistas</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span class="text-gray-700">Diferenciação da concorrência com tecnologias inovadoras (RA/IA)</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span class="text-gray-700">Conteúdo atualizado e alinhado com tendências atuais</span>
-                            </div>
-                        </div>
-                    </div>
+                
+                <!-- Plano INOVA+ -->
+                <div style="width: 45%; background-color: #f5f3ff; border: 1px solid #8b5cf6; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-sizing: border-box;">
+                    <h4 style="color: #8b5cf6; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; margin-bottom: 3px;">PLANO INOVA+</h4>
+                    <div style="font-size: 1.8rem; font-weight: 700; color: #1f2937;">Personalizado à sua medida</div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-top: 3px;">Todos os serviços INOVA+ incluídos</p>
                 </div>
             </div>
+            
+
+            <!-- Nota sobre condições de pagamento -->
+            <div style="width: 90%; margin: 0 auto 10px auto;">
+                <div style="background-color: #f9fafb; padding: 6px 10px; border-radius: 8px; border-left: 3px solid #9ca3af; text-align: center;">
+                    <p style="color: #4b5563; font-size: 0.75rem; font-weight: 500; margin: 0;"><i class="fas fa-info-circle" style="color: #6b7280; margin-right: 5px;"></i>Nota: Todos os valores apresentados têm condições de pronto pagamento.</p>
+                </div>
+            </div>
+            
             <div class="mt-auto flex justify-between items-center pt-6">
                 <div class="flex items-center pl-2">
                     <h3 class="text-lg font-medium text-gray-500">GELATOMANIA</h3>
